@@ -1,4 +1,5 @@
 package com.example.keephabits.data.models
 
-class IntroView {
+data class IntroView(val description: String, val imageId: Int){
+
 }
