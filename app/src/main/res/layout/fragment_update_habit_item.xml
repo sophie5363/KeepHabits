@@ -24,7 +24,7 @@
                 android:layout_height="wrap_content"
                 android:layout_margin="10dp"
                 android:backgroundTint="#26A69A"
-                android:hint="Habit title"
+                android:hint="Nom de l'habitude"
                 android:inputType="text"
                 android:textColor="@android:color/black"
                 android:textSize="20sp" />
@@ -35,7 +35,7 @@
                 android:layout_height="wrap_content"
                 android:layout_margin="10dp"
                 android:backgroundTint="#26A69A"
-                android:hint="Give it a short description"
+                android:hint="Donnez-lui une courte description"
                 android:inputType="textShortMessage"
                 android:textColor="@android:color/black"
                 android:textSize="20sp" />
@@ -50,7 +50,7 @@
                 android:clickable="true"
                 android:focusable="true"
                 android:foreground="?android:attr/selectableItemBackground"
-                android:text="Pick a date"
+                android:text="Choisissez une date"
                 android:textColor="@android:color/white" />
 
             <TextView
@@ -58,7 +58,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_margin="10dp"
-                android:text="Date: (not selected)"
+                android:text="Date: (non choisie)"
                 android:textSize="20sp" />
 
             <Button
@@ -71,7 +71,7 @@
                 android:clickable="true"
                 android:focusable="true"
                 android:foreground="?android:attr/selectableItemBackground"
-                android:text="Pick a time"
+                android:text="Choisissez une heure"
                 android:textColor="@android:color/white" />
 
             <TextView
@@ -79,7 +79,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_margin="10dp"
-                android:text="Time: (not selected)"
+                android:text="Heure: (non choisie)"
                 android:textSize="20sp" />
 
             <LinearLayout
@@ -124,7 +124,7 @@
                 android:clickable="true"
                 android:focusable="true"
                 android:foreground="?android:attr/selectableItemBackground"
-                android:text="Confirm"
+                android:text="Valider"
                 android:textColor="@android:color/white" />
 
         </LinearLayout>
