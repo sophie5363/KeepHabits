@@ -4,6 +4,7 @@ import java.sql.Date
 import java.sql.Timestamp
 import java.text.SimpleDateFormat
 
+
 object Calculations {
 
     fun calcultateTimeBetweenDates(startDate: String): String{
@@ -26,7 +27,7 @@ object Calculations {
         val minutes: Long = difference / 60 / 1000
         val hours: Long = difference / 60 / 1000 / 60
         val days: Long = (difference / 60 / 1000 / 60) / 24
-        val months: Long = (difference / 60 / 1000 / 60) / 24 / (365/12)
+        val months: Long = (difference / 60 / 1000 / 60) / 24 / (365 / 12)
         val years: Long = difference / 60 / 1000 / 60 / 24 / 365
 
         if(isNegative){
@@ -36,9 +37,7 @@ object Calculations {
                 days < 61 -> "Commence dans $days jours"
                 months < 24 -> "Commence dans $months mois"
                 else -> "Commence dans $years années"
-
             }
-
         }
 
         return when{
@@ -85,7 +84,7 @@ object Calculations {
         }
 
         if(_minute < 10){
-            hour = "0$_minute"
+            minute = "0$_minute"
         }
 
         return "$hour:$minute"
