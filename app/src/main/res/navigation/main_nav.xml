@@ -8,7 +8,7 @@
     <fragment
         android:id="@+id/habitList"
         android:name="com.example.keephabits.ui.fragments.habitlist.HabitList"
-        android:label="Habits"
+        android:label="Bonnes habitudes post-Covid"
         tools:layout="@layout/fragment_habit_list" >
         <action
             android:id="@+id/action_habitList_to_createHabitsItem"
@@ -20,7 +20,7 @@
     <fragment
         android:id="@+id/createHabitsItem"
         android:name="com.example.keephabits.ui.fragments.createhabit.CreateHabitsItem"
-        android:label="Create habit"
+        android:label="Créer une bonne habitude"
         tools:layout="@layout/fragment_create_habits_item" >
         <action
             android:id="@+id/action_createHabitsItem_to_habitList"
@@ -29,7 +29,7 @@
     <fragment
         android:id="@+id/updateHabitItem"
         android:name="com.example.keephabits.ui.fragments.updatehabit.UpdateHabitItem"
-        android:label="Update habit"
+        android:label="Modifier une habitude créée"
         tools:layout="@layout/fragment_update_habit_item" >
         <action
             android:id="@+id/action_updateHabitItem_to_habitList"
