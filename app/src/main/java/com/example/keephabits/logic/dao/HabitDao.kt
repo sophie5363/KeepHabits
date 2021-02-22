@@ -13,7 +13,7 @@ interface HabitDao {
     @Update
     suspend fun updateHabit(habit: Habit)
 
-    @Update
+    @Delete
     suspend fun deleteHabit(habit: Habit)
 
     @Query("SELECT * FROM habit_table ORDER BY id DESC")
@@ -21,6 +21,4 @@ interface HabitDao {
 
     @Query("DELETE FROM habit_table")
     suspend fun deleteAll()
-
-
 }

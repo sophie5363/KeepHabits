@@ -50,44 +50,56 @@ class UpdateHabitItem : Fragment(R.layout.fragment_update_habit_item), TimePicke
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         habitViewModel = ViewModelProvider(this).get(HabitViewModel::class.java)
 
+        //Récupération des données de la liste d'habitudes
         et_habitTitle_update.setText(args.selectedHabit.habit_title)
         et_habitDescription_update.setText(args.selectedHabit.habit_description)
 
+        //Choix d'un drawable
         drawableSelected()
 
+        //Nouveau choix de date et d'heure
         pickDateAndTime()
 
+        //Confirmation des changements de l'item sélectionné
         btn_confirm_update.setOnClickListener{
             updateHabit()
         }
 
+        //Montre l'option menu dans ce fragment en haut à droite
         setHasOptionsMenu(true)
     }
 
     @InternalCoroutinesApi
     private fun updateHabit(){
+        //Récupération du texte des editTests
         title = et_habitTitle_update.text.toString()
         description = et_habitDescription_update.text.toString()
 
+        //Création d'une string timeStamp pour le recyclerView
         timeStamp = "$cleanDate $cleanTime"
 
+        //Vérification que le formulaire est complet avant de soumettre les données à la BDD
         if (!(title.isEmpty() || description.isEmpty() || timeStamp.isEmpty() || drawableSelected == 0)){
             val habit = Habit(args.selectedHabit.id, title, description, timeStamp, drawableSelected)
 
+            //Ajout de l'habitude si tous les champs sont remplis
             habitViewModel.updateHabit(habit)
             Toast.makeText(context, "Habitude modifiée avec succès", Toast.LENGTH_SHORT).show()
 
+            //Retour au fragment d'accueil
             findNavController().navigate(R.id.action_updateHabitItem_to_habitList)
         } else {
             Toast.makeText(context, "Veuillez remplir tous les champs!", Toast.LENGTH_SHORT).show()
         }
     }
 
+    //Crée un sélecteur pour les icônes qui apparaîtront dans les cellules du recyclerView
     private fun drawableSelected(){
         iv_fastFoodSelected_update.setOnClickListener(){
             iv_fastFoodSelected_update.isSelected = !iv_fastFoodSelected_update.isSelected
             drawableSelected = R.drawable.ic_fastfood_24
 
+            //Dé-sélectionne les autres icônes quand on en choisit une
             iv_smokingSelected_update.isSelected = false
             iv_teaSelected_update.isSelected = false
         }
@@ -96,6 +108,7 @@ class UpdateHabitItem : Fragment(R.layout.fragment_update_habit_item), TimePicke
             iv_smokingSelected_update.isSelected = !iv_smokingSelected_update.isSelected
             drawableSelected = R.drawable.ic_baseline_smoke_free_24
 
+            //Dé-sélectionne les autres icônes quand on en choisit une
             iv_fastFoodSelected_update.isSelected = false
             iv_teaSelected_update.isSelected = false
         }
@@ -104,6 +117,7 @@ class UpdateHabitItem : Fragment(R.layout.fragment_update_habit_item), TimePicke
             iv_teaSelected_update.isSelected = !iv_teaSelected_update.isSelected
             drawableSelected = R.drawable.ic_baseline_emoji_food_beverage_24
 
+            //Dé-sélectionne les autres icônes quand on en choisit une
             iv_fastFoodSelected_update.isSelected = false
             iv_smokingSelected_update.isSelected = false
         }
@@ -111,6 +125,7 @@ class UpdateHabitItem : Fragment(R.layout.fragment_update_habit_item), TimePicke
 
     }
 
+    //Click listeners pour les pickers de la date et de l'heure
     private fun pickDateAndTime(){
         btn_pickDate_update.setOnClickListener{
             getDateCalendar()
@@ -123,6 +138,7 @@ class UpdateHabitItem : Fragment(R.layout.fragment_update_habit_item), TimePicke
         }
     }
 
+    //Récupère l'heure actuelle
     private fun getTimeCalendar(){
         val cal = Calendar.getInstance()
         hour = cal.get(Calendar.HOUR_OF_DAY)
@@ -130,6 +146,7 @@ class UpdateHabitItem : Fragment(R.layout.fragment_update_habit_item), TimePicke
 
     }
 
+    //Récupère la date actuelle
     private fun getDateCalendar(){
         val cal = Calendar.getInstance()
         day = cal.get(Calendar.DAY_OF_MONTH)
@@ -147,6 +164,7 @@ class UpdateHabitItem : Fragment(R.layout.fragment_update_habit_item), TimePicke
         tv_dateSelected_update.text = "Date: $cleanDate"
     }
 
+    //Crée l'options menu
     override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
         inflater.inflate(R.menu.single_item_menu, menu)
     }

@@ -144,8 +144,6 @@ class CreateHabitsItem : Fragment(R.layout.fragment_create_habits_item),
         tv_timeSelected.text = "Heure: $cleanTime"
     }
 
-
-
     //Récupère l'heure actuelle
     private fun getTimeCalendar(){
     val cal = Calendar.getInstance()
