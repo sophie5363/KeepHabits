@@ -50,6 +50,7 @@ class HabitList : Fragment(R.layout.fragment_habit_list) {
             }
         })
 
+        //Montre l'options menu dans ce fragment
         setHasOptionsMenu(true)
 
         swipeToRefresh.setOnRefreshListener {
